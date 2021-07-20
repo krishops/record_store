@@ -39,6 +39,13 @@ post('/albums') do
   erb(:albums)
 end
 
+post('albums/search_results') do
+  Album.all()
+  @search_album = Album.search(params[:search])
+  erb(:search_results)
+end
+
+
 patch('/albums/:id') do
   @album = Album.find(params[:id].to_i())
   @album.update_name(params[:name])

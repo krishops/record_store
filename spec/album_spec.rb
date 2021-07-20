@@ -98,4 +98,17 @@ describe '#Album' do
       expect(Album.all).to(eq([album2]))
     end
   end
+
+  describe('#search') do
+    it("searches for an album by name") do
+      album = Album.new("Giant Steps", 1960, "Jazz", "John Coltrane", nil) 
+      album.save()
+      album2 = Album.new("Blue", 1971, "Folk", "Joni Mitchell", nil) 
+      album2.save()
+      expect(Album.search(album.name)).to(eq(album))
+    end
+  end
 end
+
+
+    
