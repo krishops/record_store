@@ -88,6 +88,18 @@ describe '#Album' do
     end
   end
 
+  describe('#songs') do
+    it("returns an album's songs") do
+      album = Album.new("Giant Steps", 1960, "Jazz", "John Coltrane", nil)
+      album.save()
+      song = Song.new("Naima", album.id, nil)
+      song.save()
+      song2 = Song.new("Cousin Mary", album.id, nil)
+      song2.save()
+      expect(album.songs).to(eq([song, song2]))
+    end
+  end
+
   describe('#delete') do
     it("deletes an album by id") do
       album = Album.new("Giant Steps", 1960, "Jazz", "John Coltrane", nil) 

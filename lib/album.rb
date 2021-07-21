@@ -50,6 +50,10 @@ class Album
     @artist = artist
   end
 
+  def songs
+    Song.find_by_album(self.id)
+  end
+
   def delete
       @@albums.delete(self.id)
   end
