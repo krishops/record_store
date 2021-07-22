@@ -40,11 +40,11 @@ post('/albums') do
   erb(:albums)
 end
 
-post('albums/search_results') do
-  Album.all()
-  @search_album = Album.search(params[:search])
-  erb(:search_results)
-end
+# post('albums/search_results') do
+#   Album.all()
+#   @search_album = Album.search(params[:search])
+#   erb(:search_results)
+# end
 
 
 patch('/albums/:id') do
